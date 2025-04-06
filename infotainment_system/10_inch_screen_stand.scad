@@ -40,7 +40,7 @@ module sleeve(width, height, depth, screenSize, thickness) {
 module attachment(width, height, depth, thickness) {
     difference() {
         cube([width, depth, height]);
-        translate([0, 0, CENTER(height, height-thickness*2)]) cube([width, depth-thickness, height-thickness*2]);
+        #translate([0, 0, CENTER(height, height-thickness*2)]) cube([width, depth-thickness, height-thickness*2]);
     }
 }
 
