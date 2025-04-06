@@ -15,8 +15,8 @@ pegOffset = 7.62;
 union() {
     sleeve(width, height, depth, screenSize, thickness);
     rotate([90, 0, 0]) {
-            translate([screenSize-pegOffset, height-pegOffset, -depth]) peg(pegWidth, pegHeight+thickness, pegScrewSize);
-            translate([screenSize-pegOffset, pegOffset, -depth]) peg(pegWidth, pegHeight+thickness, pegScrewSize);
+            translate([screenSize-pegOffset, height-pegOffset-thickness, -depth]) peg(pegWidth, pegHeight+thickness, pegScrewSize);
+            translate([screenSize-pegOffset, pegOffset+thickness, -depth]) peg(pegWidth, pegHeight+thickness, pegScrewSize);
     };
     translate([0, depth, CENTER(height, height-40)]) attachment(screenSize, height-40, 2*thickness, thickness);
 }
@@ -25,13 +25,13 @@ module sleeve(width, height, depth, screenSize, thickness) {
     difference() {
         cube([width, depth, height]);
 
-        translate([0,0,CENTER(height, height-thickness)]) cube([width - 25, depth - thickness, height - thickness]);
+        translate([0,0,CENTER(height, height-thickness*2)]) cube([width - 25, depth - thickness, height - thickness*2]);
 
-        translate([screenSize, + thickness, CENTER(height, height-thickness)]) #cube([width - screenSize, depth - thickness, height - thickness]);
+        translate([screenSize, thickness, CENTER(height, height-thickness*2)]) #cube([width - screenSize, depth - thickness, height - thickness*2]);
 
         rotate([90, 0, 0]) {
-            translate([screenSize-pegOffset, height-pegOffset, -depth]) pegHole(pegWidth, pegHeight, pegScrewSize);
-            translate([screenSize-pegOffset, pegOffset, -depth]) pegHole(pegWidth, pegHeight, pegScrewSize);
+            translate([screenSize-pegOffset, height-pegOffset-thickness, -depth]) pegHole(pegWidth, pegHeight, pegScrewSize);
+            translate([screenSize-pegOffset, pegOffset+thickness, -depth]) pegHole(pegWidth, pegHeight, pegScrewSize);
     };
     }
 }
