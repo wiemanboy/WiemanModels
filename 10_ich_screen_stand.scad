@@ -2,15 +2,15 @@ $fs = 0.5;
 $fa = 0.5;
 
 width = 40;
-height = 143;
+height = 147;
 depth = 19;
 screenSize = 15;
 thickness = 2;
 
-pegWidth = 4;
-pegHeight = 1.75;
-pegScrewSize = 2.5;
-pegOffset = 7.62;
+pegWidth = 2.75;
+pegHeight = 3.75;
+pegScrewSize = 1.25;
+pegOffset = pegWidth + 2;
 
 union() {
     sleeve(width, height, depth, screenSize, thickness);
