@@ -26,11 +26,11 @@ module sleeve(width, height, depth, screenSize, thickness) {
     difference() {
         cube([width, depth, height]);
 
-        translate([0,0,CENTER(height, height-thickness*2)]) cube([width - 25, depth - thickness, height - thickness*2]);
+        #translate([0,0,CENTER(height, height-thickness*2)]) cube([width - 25, depth - thickness, height - thickness*2]);
 
-        translate([screenSize, thickness, CENTER(height, height-thickness*2)]) #cube([width - screenSize, depth - thickness, height - thickness*2]);
+        #translate([screenSize, thickness, CENTER(height, height-thickness*2)]) cube([width - screenSize-thickness, depth - thickness, height - thickness*2]);
 
-        rotate([90, 0, 0]) {
+        #rotate([90, 0, 0]) {
             translate([screenSize-pegOffset, height-pegOffset-thickness, -depth]) pegHole(pegWidth, pegHeight+pegNegativeHeight, pegScrewSize);
             translate([screenSize-pegOffset, pegOffset+thickness, -depth]) pegHole(pegWidth, pegHeight+pegNegativeHeight, pegScrewSize);
     };
