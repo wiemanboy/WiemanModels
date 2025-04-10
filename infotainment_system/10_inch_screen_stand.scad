@@ -31,7 +31,7 @@ module sleeve(width, height, depth, screenSize, thickness) {
         translate([screenSize, thickness, CENTER(height, height-thickness*2)]) #cube([width - screenSize, depth - thickness, height - thickness*2]);
 
         rotate([90, 0, 0]) {
-            translate([screenSize-pegOffset, height-pegOffset-thickness, -depth]) pegHole(pegWidth, pegHeigh+pegNegativeHeightt, pegScrewSize);
+            translate([screenSize-pegOffset, height-pegOffset-thickness, -depth]) pegHole(pegWidth, pegHeight+pegNegativeHeight, pegScrewSize);
             translate([screenSize-pegOffset, pegOffset+thickness, -depth]) pegHole(pegWidth, pegHeight+pegNegativeHeight, pegScrewSize);
     };
     }
