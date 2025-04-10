@@ -1,18 +1,6 @@
 use <./utils.scad>
 
-width = 50;
-height = 30;
-thickness = 3;
 tollerance = 0.5;
-
-edgeWidth = 10;
-
-holeWidth = width - edgeWidth;
-holeHeight = height - edgeWidth;
-
-femaleClip(holeWidth, holeHeight, thickness);
-!maleClip(width, height, holeHeight, thickness, edgeWidth);
-
 
 module femaleClip(holeWidth, holeHeight, thickness) {
     difference() {
@@ -34,7 +22,7 @@ module maleClip(width, height, holeHeight, thickness, edgeWidth) {
     }
 
     translate([width-edgeWidth/2-1, CENTER(height, clipHeight),clipDepth]) 
-    clipExtension(clipHeight, thickness, 1.7, 1);
+    clipExtension(clipHeight, thickness, 1., 1);
 }
 
 module clipExtension(width, height, depth, edge) {
