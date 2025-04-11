@@ -12,20 +12,26 @@ screenDegrees = 84;
 screenStandWidth = 100;
 screenStandHeight = 115;
 
+supportThickness = 6;
+
 union() {
-    translate([CENTER(width, screenStandWidth),length-thickness,thickness]) rotate([-6, 0, 0]) {
+    translate([CENTER(width, screenStandWidth),length-supportThickness,thickness]) rotate([-6, 0, 0]) {
         difference() {
-            cube([screenStandWidth, thickness, screenStandHeight]);
+            cube([screenStandWidth, supportThickness, screenStandHeight]);
             clipHoleWidth=70;
             clipHoleHeight=60;
-            translate([CENTER(screenStandWidth,clipHoleWidth),0, screenStandHeight-clipHoleHeight-10]) #cube([clipHoleWidth, thickness, clipHoleHeight]);
+            translate([CENTER(screenStandWidth,clipHoleWidth),0, screenStandHeight-clipHoleHeight-10]) #cube([clipHoleWidth, supportThickness, clipHoleHeight]);
+            translate([CENTER(screenStandWidth,screenStandWidth-supportThickness*2),0, screenStandHeight-clipHoleHeight-10]) #cube([screenStandWidth-supportThickness*2, thickness, clipHoleHeight]);
         }
     }
 
-    translate([CENTER(width, screenStandWidth),length-thickness-length/2,thickness]) rotate([-32.5, 0, 0]) {
+    translate([CENTER(width, screenStandWidth),length-thickness-length/2,thickness]) rotate([-31, 0, 0]) {
         difference () {
-            cube([screenStandWidth, thickness, 134]);
-            #translate([CENTER(screenStandWidth, screenStandWidth-30),0,CENTER(116.7, 116.7-30)])cube([screenStandWidth-30, thickness, 116.7-30]);
+            cube([screenStandWidth, supportThickness, 133.5]);
+            #translate([CENTER(screenStandWidth, screenStandWidth-30),0,CENTER(116.7, 116.7-30)]) 
+            rotate([90,0,0]) {
+                translate([0,0,-supportThickness]) roundedCube([screenStandWidth-30, 116.7-30, supportThickness], 30, sidesonly=true);
+            }
         }
     }
 
