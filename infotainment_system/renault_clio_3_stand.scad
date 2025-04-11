@@ -9,22 +9,22 @@ screwHoleWidth = 7;
 screwHoleLength = 11;
 
 screenDegrees = 84;
-screenStandWidth = 80;
-screenStandHeight = 95;
+screenStandWidth = 100;
+screenStandHeight = 115;
 
 union() {
     translate([CENTER(width, screenStandWidth),length-thickness,thickness]) rotate([-6, 0, 0]) {
         difference() {
             cube([screenStandWidth, thickness, screenStandHeight]);
-            clipHoleWidth=screenStandWidth-10;
-            clipHoleHeight=50;
+            clipHoleWidth=70;
+            clipHoleHeight=60;
             translate([CENTER(screenStandWidth,clipHoleWidth),0, screenStandHeight-clipHoleHeight-10]) #cube([clipHoleWidth, thickness, clipHoleHeight]);
         }
     }
 
-    translate([CENTER(width, screenStandWidth),length-thickness-length/2,thickness]) rotate([-36.52, 0, 0]) {
+    translate([CENTER(width, screenStandWidth),length-thickness-length/2,thickness]) rotate([-32.5, 0, 0]) {
         difference () {
-            cube([screenStandWidth, thickness, 117.6]);
+            cube([screenStandWidth, thickness, 134]);
             #translate([CENTER(screenStandWidth, screenStandWidth-30),0,CENTER(116.7, 116.7-30)])cube([screenStandWidth-30, thickness, 116.7-30]);
         }
     }
