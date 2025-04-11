@@ -35,6 +35,11 @@ union() {
         }
     }
 
+    translate([0,length-supportThickness-length/2,50]) rotate([-35,0,0]) {
+        translate([-screenStandWidth/2+width,27,0]) cube([supportThickness,48,10]);
+        translate([-screenStandWidth/2+width-screenStandWidth+supportThickness*2,27,0]) cube([supportThickness,48,10]);
+    }
+
     difference() {
         roundedCube(size=[width, length, thickness], r=30, center=false, sidesonly=true);
 
