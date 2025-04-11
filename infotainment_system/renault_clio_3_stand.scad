@@ -13,7 +13,7 @@ screenStandWidth = 80;
 screenStandHeight = 95;
 
 union() {
-    translate([CENTER(width, screenStandWidth),length-thickness,0]) rotate([-6, 0, 0]) {
+    translate([CENTER(width, screenStandWidth),length-thickness,thickness]) rotate([-6, 0, 0]) {
         difference() {
             cube([screenStandWidth, thickness, screenStandHeight]);
             clipHoleWidth=screenStandWidth-10;
@@ -22,9 +22,9 @@ union() {
         }
     }
 
-    translate([CENTER(width, screenStandWidth),length-thickness-length/2,thickness]) rotate([-37.2, 0, 0]) {
+    translate([CENTER(width, screenStandWidth),length-thickness-length/2,thickness]) rotate([-36.52, 0, 0]) {
         difference () {
-            cube([screenStandWidth, thickness, 116.7]);
+            cube([screenStandWidth, thickness, 117.6]);
             #translate([CENTER(screenStandWidth, screenStandWidth-30),0,CENTER(116.7, 116.7-30)])cube([screenStandWidth-30, thickness, 116.7-30]);
         }
     }
