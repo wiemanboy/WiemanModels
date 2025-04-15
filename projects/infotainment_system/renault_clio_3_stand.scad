@@ -1,5 +1,5 @@
 use <MCAD/boxes.scad>
-use <./../utils.scad>
+use <./../../utils.scad>
 
 thickness = 3;
 width = 180;
