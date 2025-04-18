@@ -7,26 +7,48 @@ use <./../../utils.scad>
 caseHolder();
 
 module caseHolder() {
-    size=[125,16,16];
-    caseThickness=12;
+    size=[100,16,10];
     thickness=2;
 
-    diagnal = DIAGNAL(size.x, size.x);
-    standSize=[diagnal/2,diagnal/2,thickness];
+    radius=25;
+    edge=15;
+    standSize=[size.x,100+radius,thickness];
 
-    translate([0,size.y,size.z]) rotate([90,45,0]) {
-        roundedCube(standSize, r=6, sidesonly=true);
-        cube(standSize);
+    // Feet
+    cube([edge,size.y,thickness]);
+    translate([size.x-edge,0,0]) cube([edge,size.y,thickness]);
+
+    // Small wall
+    translate([0,thickness,0]) rotate([90,0,0]) {
+        roundedCube([edge,size.z,thickness], r=5, sidesonly=true);
+        cube([edge,size.z/2,thickness]);
     }
 
-    difference() {
-        cube(size);
-        #translate([0,CENTER(size.y, caseThickness),thickness]) cube([size.x,caseThickness,size.z-thickness]);
+    translate([size.x-edge,thickness,0]) cdHolder(edge, 70, thickness);
+
+    // Backsupport
+    translate([0,size.y,-radius*1.1]) rotate([90,0,0]) {
+        difference() {
+            roundedCube(standSize, r=radius, sidesonly=true);
+            translate([CENTER(standSize.x,standSize.x-edge*2),CENTER(standSize.y,standSize.y-edge*2),0]) 
+            roundedCube([standSize.x-edge*2, standSize.y-edge*2, standSize.z], r=radius*.5, sidesonly=true);
+
+            cube([standSize.x,radius*1.1,standSize.z]);
+        }
     }
+
+    %translate([-20,thickness,thickness]) case();
 }
 
-module cdHolder() {
+module cdHolder(width, height, thickness) {
     rotate([90,0,0]) {
-        roundedCube([25,100,2], r=12.5, sidesonly=true);
+        roundedCube([width,height,thickness], r=width/2, sidesonly=true);
+        cube([width,height/2,thickness]);
+
+        internalSupportWidth=2;
+        translate([width/2,height-width/2,thickness]) cylinder(internalSupportWidth, d=width-3);
+        translate([width/2,height-width/2,thickness+internalSupportWidth]) cylinder(2, d=width-1);
+
+        %translate([width/2,height-7.5,thickness+internalSupportWidth/2-.5]) cd();
     }
 }
