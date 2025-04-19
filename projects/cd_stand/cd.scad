@@ -8,5 +8,5 @@ module cd() {
 }
 
 module case() {
-    color([.2,.2,.2]) cube([140, 12, 140]);
+    color([.2,.2,.2]) cube([140, 10, 140]);
 }

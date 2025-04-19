@@ -7,7 +7,7 @@ use <./../../utils.scad>
 caseHolder();
 
 module caseHolder() {
-    size=[100,16,10];
+    size=[100,15,10];
     thickness=2;
 
     radius=25;
@@ -15,8 +15,9 @@ module caseHolder() {
     standSize=[size.x,100+radius,thickness];
 
     // Feet
-    cube([edge,size.y,thickness]);
-    translate([size.x-edge,0,0]) cube([edge,size.y,thickness]);
+    feetSize=[edge, 40, thickness];
+    translate([0,CENTER(-feetSize.y, -size.y),0]) roundedCube(feetSize, r=5, sidesonly=true);
+    translate([size.x-edge,CENTER(-feetSize.y, -size.y),0]) roundedCube(feetSize, r=5, sidesonly=true);
 
     // Small wall
     translate([0,thickness,0]) rotate([90,0,0]) {
@@ -24,7 +25,7 @@ module caseHolder() {
         cube([edge,size.z/2,thickness]);
     }
 
-    translate([size.x-edge,thickness,0]) cdHolder(edge, 70, thickness);
+    translate([size.x-edge,thickness,0]) cdHolder(edge, 75, thickness);
 
     // Backsupport
     translate([0,size.y,-radius*1.1]) rotate([90,0,0]) {
@@ -37,7 +38,7 @@ module caseHolder() {
         }
     }
 
-    %translate([-20,thickness,thickness]) case();
+    %translate([-20,thickness*1.25,thickness]) case();
 }
 
 module cdHolder(width, height, thickness) {
