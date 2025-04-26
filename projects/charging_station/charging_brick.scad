@@ -1,5 +1,5 @@
 use <MCAD/boxes.scad>
-use <./../../utils.scad>
+use <LIB/utils.scad>
 
 size=[80, 80, 29];
 clipHeight=17;

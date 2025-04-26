@@ -1,5 +1,5 @@
 use <MCAD/boxes.scad>
-use <./../../utils.scad>
+use <LIB/utils.scad>
 
 $fs = 0.5;
 $fa = 0.5;

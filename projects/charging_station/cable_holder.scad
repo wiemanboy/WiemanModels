@@ -1,5 +1,3 @@
-use <./../../utils.scad>
-
 cableHolderHeight=5;
 cableHolderWidth=12;
 cableWidth=5;

@@ -1,6 +1,6 @@
 use <MCAD/boxes.scad>
-use <./cd.scad>
-use <./../../utils.scad>
+use <cd.scad>
+use <LIB/utils.scad>
 
 // cd case size = w/h=145 thickness=10
 

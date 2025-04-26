@@ -1,5 +1,5 @@
-use <./../../utils.scad>
-use <./../../clip.scad>;
+use <LIB/utils.scad>
+use <LIB/clip.scad>;
 
 screenStandWidth = 81;
 screenStandHeight = 50;
