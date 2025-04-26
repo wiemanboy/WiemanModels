@@ -12,14 +12,28 @@ width=100;
 height=100;
 thickness=2;
 
+holeWidth=5;
+pegWidth=7;
+pegHeight=5;
+margin=5;
+
+
 difference() {
-    color([1,1,1]) roundedCube(size=[width, height, thickness], r=5, center=false, sidesonly=true);
-    translate([CENTER(width,2),5,0])#cylinder(d=5, h=thickness);
-    translate([CENTER(width,2),height-5,0])#cylinder(d=5, h=thickness);
+    color([1,1,1]) backPlate();
+
+    translate([5,CENTER(height,holeWidth),0])#cylinder(d=holeWidth, h=thickness+pegHeight);
+    translate([width-5,CENTER(height,holeWidth),0])#cylinder(d=holeWidth, h=thickness+pegHeight);
 }
 
-translate([CENTER(width,2),5,0])#cylinder(d=5, h=thickness);
-translate([CENTER(width,2),height-5,0])#cylinder(d=5, h=thickness);
+module backPlate() {
+    roundedCube(size=[width, height, thickness], r=5, center=false, sidesonly=true);
 
-color([0,0,0]) translate([letterOfset,CENTER(height, letterHeight),thickness])linear_extrude(letterThickness) text("3", letterHeight, font="National Park:style=Regular");
-color([0,0,0]) translate([letterOfset+55,CENTER(height, letterHeight),thickness])linear_extrude(letterThickness) text("A", 40, font="National Park:style=Bold");
+    translate([margin,CENTER(height,holeWidth),0]) cylinder(d=pegWidth, h=thickness+pegHeight);
+    translate([width-margin,CENTER(height,holeWidth),0]) cylinder(d=pegWidth, h=thickness+pegHeight);
+
+    translate([CENTER(width,holeWidth),margin,0]) cylinder(d=pegWidth, h=thickness+pegHeight);
+    translate([CENTER(width,holeWidth),height-margin,0]) cylinder(d=pegWidth, h=thickness+pegHeight);
+}
+
+color([0,0,0]) translate([letterOfset,CENTER(height, letterHeight),thickness]) linear_extrude(letterThickness) text("3", letterHeight, font="National Park:style=Regular");
+color([0,0,0]) translate([letterOfset+55,CENTER(height, letterHeight),thickness]) linear_extrude(letterThickness) text("A", 40, font="National Park:style=Bold");
