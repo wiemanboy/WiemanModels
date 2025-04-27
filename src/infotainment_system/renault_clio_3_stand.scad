@@ -18,10 +18,11 @@ union() {
     translate([CENTER(width, screenStandWidth),length-supportThickness,thickness]) rotate([-6, 0, 0]) {
         difference() {
             cube([screenStandWidth, supportThickness, screenStandHeight]);
-            clipHoleWidth=70;
+            clipHoleWidth=60;
             clipHoleHeight=60;
+            sideWidth=30;
             translate([CENTER(screenStandWidth,clipHoleWidth),0, screenStandHeight-clipHoleHeight-10]) #cube([clipHoleWidth, supportThickness, clipHoleHeight]);
-            translate([CENTER(screenStandWidth,screenStandWidth-supportThickness*2),0, screenStandHeight-clipHoleHeight-10]) #cube([screenStandWidth-supportThickness*2, thickness, clipHoleHeight]);
+            translate([CENTER(screenStandWidth,screenStandWidth-sideWidth),0, screenStandHeight-clipHoleHeight-10]) #cube([screenStandWidth-sideWidth, thickness, clipHoleHeight]);
         }
     }
 

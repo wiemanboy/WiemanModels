@@ -12,14 +12,14 @@ width = 235;
 height = 50;
 backplateWidth = width-30;
 
-clipHoleWidth=70;
-clipHoleHeight=50;
+clipHoleWidth=60;
+clipHoleHeight=60;
 
 difference() {
     union() {
         screenInterface(width, interfaceHeight, interfaceThickness);
         translate([CENTER(width, backplateWidth),0,0]) backplate(backplateWidth, height, thickness);
-        translate([CENTER(width, clipHoleWidth+10),0,0]) screenStand(clipHoleWidth+10, clipHoleHeight+10, thickness*2);
+        translate([CENTER(width, clipHoleWidth+10),0,0]) screenStand(clipHoleWidth+10, clipHoleHeight, thickness*2);
     }
 
     gapWidth = 50;
