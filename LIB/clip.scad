@@ -36,3 +36,10 @@ module clipExtension(width, height, depth, edge) {
         ]);
     }
 }
+
+module tableClip(width, clipWidth, clipHeight, thickness) {
+    difference() {
+        cube([width,clipWidth+thickness,clipHeight+thickness*2]);
+        translate([0,thickness,thickness])cube([width,clipWidth,clipHeight]);
+    }
+}
