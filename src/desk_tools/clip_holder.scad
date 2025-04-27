@@ -4,7 +4,7 @@ thickness=2;
 
 width=20;
 clipWidth=10;
-clipHeight=17;
+clipHeight=16.5;
 
 hangerHeight=20;
 hangerWidth=thickness;
@@ -13,7 +13,10 @@ hangerSpacing=10+thickness;
 union() {
     translate([0,hangerSpacing,0]) tableClip(width, clipWidth, clipHeight, thickness);
     translate([width,hangerWidth,0]) rotate([0,0,180]) hanger();
-    cube([width,hangerSpacing,thickness]);
+    difference() {
+        cube([width,hangerSpacing,thickness]);
+        translate([thickness*2,0,0]) cube([width-thickness*4,hangerSpacing,thickness]);
+    }
 }
 
 module hanger() {
