@@ -14,19 +14,19 @@
 		{
 			"label": "build OpenSCAD file",
 			"type": "shell",
-			"command": "echo Building all OpenSCAD files to .3mf outputs",
+			"command": "echo Building all OpenSCAD files to .stl outputs",
 			"windows": {
-				"command": "mkdir -ErrorAction SilentlyContinue target\\${relativeFileDirname}; openscad -o target\\${relativeFileDirname}\\${fileBasenameNoExtension}.3mf ${relativeFile}"
+				"command": "mkdir -ErrorAction SilentlyContinue target\\${relativeFileDirname}; openscad -o target\\${relativeFileDirname}\\${fileBasenameNoExtension}.stl ${relativeFile}"
 			},
 			"linux": {
-				"command": "mkdir -p target/${relativeFileDirname} && openscad -o target/${relativeFileDirname}/${fileBasenameNoExtension}.3mf ${relativeFile}"
+				"command": "mkdir -p target/${relativeFileDirname} && openscad -o target/${relativeFileDirname}/${fileBasenameNoExtension}.stl ${relativeFile}"
 			},
 			"group": {
 				"kind": "build",
 				"isDefault": true
 			},
 			"problemMatcher": [],
-			"detail": "Builds OpenSCAD file into .3mf"
+			"detail": "Builds OpenSCAD file into .stl"
 		}
 	]
 }
