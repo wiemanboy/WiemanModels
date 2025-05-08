@@ -19,7 +19,7 @@
 				"command": "mkdir -ErrorAction SilentlyContinue target\\${relativeFileDirname}; openscad -o target\\${relativeFileDirname}\\${fileBasenameNoExtension}.stl ${relativeFile}"
 			},
 			"linux": {
-				"command": "mkdir -p target/${relativeFileDirname} && openscad -o target/${relativeFileDirname}/${fileBasenameNoExtension}.stl ${relativeFile}"
+				"command": "mkdir -p target/${relativeFileDirname} && openscad -o target/${relativeFileDirname}/${fileBasenameNoExtension}.stl ${relativeFile} || openscad-nightly -o target/${relativeFileDirname}/${fileBasenameNoExtension}.stl ${relativeFile}"
 			},
 			"group": {
 				"kind": "build",
