@@ -19,7 +19,7 @@ for (i = [0 : count - 1]) {
         }
 }
 
-!clip();
+translate([100,0,0]) clip();
 
 module point(radius, length, width) {
     rotate_extrude(length) translate([radius,0,0]) square(size=[width, thickness], center=true);
@@ -37,7 +37,7 @@ module clip() {
         [0,0],
         [0,height],
         [thickness,height],
-        [width,thickness+1],
-        [width-thickness*1.5,thickness+1], 
+        [width-.5,thickness+2.5],
+        [width-2,thickness+2.5], 
         [thickness,height-thickness*1.25]]);
 }
