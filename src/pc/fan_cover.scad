@@ -2,7 +2,7 @@ $fs = 0.5;
 $fa = 0.5;
 
 innerDiamater=41;
-outerDiamater=115;
+outerDiamater=116;
 width=7.5;
 thickness=1;
 
