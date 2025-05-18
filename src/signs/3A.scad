@@ -4,12 +4,12 @@ use <LIB/utils.scad>
 $fs = 0.5;
 $fa = 0.5;
 
-letterHeight = 75;
+letterHeight = 100;
 letterThickness = 1;
-letterOfset = 3;
+letterOfset = -3;
 
-width=100;
-height=100;
+width=letterHeight+10;
+height=letterHeight+10;
 thickness=2;
 
 holeWidth=5;
@@ -36,4 +36,4 @@ module backPlate() {
 }
 
 color([0,0,0]) translate([letterOfset,CENTER(height, letterHeight),thickness]) linear_extrude(letterThickness) text("3", letterHeight, font="National Park:style=Regular");
-color([0,0,0]) translate([letterOfset+55,CENTER(height, letterHeight),thickness]) linear_extrude(letterThickness) text("A", 40, font="National Park:style=Bold");
+color([0,0,0]) translate([letterOfset+letterHeight-letterHeight/3,CENTER(height, letterHeight),thickness]) linear_extrude(letterThickness) text("A", letterHeight/2, font="National Park:style=Bold");
