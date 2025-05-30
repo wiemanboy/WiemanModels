@@ -1,5 +1,6 @@
 use <MCAD/boxes.scad>
 use <LIB/utils.scad>
+use <./NationalPark-VariableFont_wght.ttf>
 
 $fs = 0.5;
 $fa = 0.5;
@@ -18,7 +19,7 @@ pegHeight=5;
 margin=5;
 
 
-difference() {
+%difference() {
     color([1,1,1]) backPlate();
 
     translate([5,CENTER(height,holeWidth),0])#cylinder(d=holeWidth, h=thickness+pegHeight);
